@@ -1,0 +1,65 @@
+server:
+  port: 9094
+  max-http-header-size: 512000
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  jetty:
+    accesslog:
+      enabled: true
+    threads:
+      acceptors: 7
+      max: 4000
+      min: 400
+      max-queue-capacity: 4000
+      selectors: 7
+spring:
+  application:
+    name: spring-security-http-basic
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test2
+    username: saber66
+    password: AdminSaber66
+    minPoolSize: 20
+    maxPoolSize: 35
+    initialPoolSize: 20
+    maxStatementsPerConnection: 300
+    maxIdleTime: 60
+    acquireIncrement: 5
+    maxConnectionAge: 60
+    numHelperThreads: 300
+    idleConnectionTestPeriod: 300
+    checkoutTimeout: 60000
+    testConnectionOnCheckin: true
+    testConnectionOnCheckout: false
+    preferredTestQuery: 'SELECT 1 '
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    layout: StandaloneLayout
+    disable-swagger-default-url: true
+  api-docs:
+    groups:
+      enabled: true
+    path: /services/http-basic/v3/api-docs
+
+hawtio:
+  authenticationEnabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /actuators/spring-security-http-basic
