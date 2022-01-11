@@ -4,7 +4,6 @@ import com.saber.springsecurityhttpbasic.dto.UserAuthority;
 import com.saber.springsecurityhttpbasic.dto.Users;
 import com.saber.springsecurityhttpbasic.repositories.UserRepository;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +20,7 @@ class SpringSecurityHttpBasicApplicationTests {
 	
 	@Autowired
 	private UserRepository userRepository;
-	@Test
+	//@Test
 	void contextLoads() {
 		String username = "saber66";
 		String password = "saber@123";
@@ -46,7 +45,7 @@ class SpringSecurityHttpBasicApplicationTests {
 		userRepository.save(users);
 		
 		
-		Optional<Users> optionalUsers = userRepository.findByUsernameAndPassword(username, passwordEncryptedNew);
+		Optional<Users> optionalUsers = userRepository.findByUsername(username);
 		Assertions.assertTrue(optionalUsers.isPresent());
 		Users users1 = optionalUsers.get();
 		System.out.println(users1);
