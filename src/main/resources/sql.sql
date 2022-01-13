@@ -6,9 +6,9 @@ create table authorities (
 
 create table users (
                        id bigint not null auto_increment,
-                       account_non_expired bit not null,
-                       account_non_locked bit not null,
-                       credentials_non_expired bit not null,
+                       accountNonExpired bit not null,
+                       accountNonLocked bit not null,
+                       credentialsNonExpired bit not null,
                        enabled bit not null,
                        password varchar(80),
                        username varchar(70),
