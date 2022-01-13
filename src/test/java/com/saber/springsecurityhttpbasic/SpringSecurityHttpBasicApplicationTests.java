@@ -37,8 +37,8 @@ class SpringSecurityHttpBasicApplicationTests {
 		users.setEnabled(true);
 		users.setCredentialsNonExpired(true);
 		List<UserAuthority> userAuthorities = new ArrayList<>();
-		userAuthorities.add(new UserAuthority("ROLE_USER"));
-		userAuthorities.add(new UserAuthority("ROLE_ADMIN"));
+		userAuthorities.add(new UserAuthority("user"));
+		userAuthorities.add(new UserAuthority("admin"));
 		users.setUserEntityAuthorities(userAuthorities);
 		
 		
